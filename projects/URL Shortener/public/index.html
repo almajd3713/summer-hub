@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css.css">
+  <title>Ay</title>
+</head>
+<body>
+  <div class="container">
+    <div class="urlFormContainer">
+      <h1 class="header">Url Shortener</h1>
+      <form action="/postUrl" method="post" id="urlForm">
+        <input type="text" class="input" name="urlToShorten" placeholder="https://galunga.com">
+      </form>
+      <p class="err">ERR: this is not a URL !</p>
+    </div>
+  </div>
+  <script>
+    let errDom = document.querySelector(".err")
+    let input = document.querySelector(".input")
+    let urlRegex = /((https?|ftp)\:\/\/([\w-]+\.)?([\w-])+\.(\w)+\/?[\w\?\.\=\&\-\#\+\/]+)/
+    input.addEventListener("input", e => {
+      if(e.target.value.length) {
+        if(e.target.value.match(urlRegex)) {
+          input.classList.add("isUrl")
+          input.classList.remove("isNotUrl")
+        } else {
+          input.classList.remove("isUrl")
+          input.classList.add("isNotUrl")
+        }
+      } else {
+        input.classList.remove("isUrl")
+        input.classList.remove("isNotUrl")
+      }
+    })
+    document.getElementById("urlForm").addEventListener("submit", e => {
+      let val = [...new FormData(e.target).entries()][0][1]
+      if(!val.match(urlRegex)){
+        e.preventDefault()
+        errDom.classList.add("visible")
+        setTimeout(() => {
+          errDom.classList.remove("visible")
+        }, 4000);
+      }
+    })
+  </script>
+</body>
+</html>

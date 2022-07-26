@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css.css">
+  <title>Bruh</title>
+</head>
+<body>
+  <div class="err">Error: this shortener isn't associated with a url</div>
+  <div class="urlDataContainer">
+    <div class="urlDataLink"></div>
+    <div class="urlDataUrl"></div>
+  </div>
+
+  <div class="clipboardCopy">Copied to clipboard !</div>
+
+  <script>
+    let errMsg = document.querySelector(".err")
+    let urlDataLink = document.querySelector(".urlDataLink")
+    let urlDataUrl = document.querySelector(".urlDataUrl")
+    let clipboardCopy = document.querySelector(".clipboardCopy")
+    let id = new URL(window.location.href).pathname.split("/").pop()
+    window.addEventListener("load", e => {
+      fetch(`/check/${id}`)
+      .then(res => {
+        if(!res.ok) throw new Error()
+        else return res.json()
+      })
+      .then(data => {
+        errMsg.style.display="none"
+        urlDataLink.textContent = `Link: ${new URL(window.location.href).host}/${id}`
+        urlDataUrl.textContent = `Url: ${data.url.length <= 40 ? data.url : `${data.url.slice(0, 41)}...`}  (click to copy)`
+        urlDataUrl.addEventListener("click", () => {
+          navigator.clipboard.writeText(data.url).then(() => {
+            clipboardCopy.classList.add("visible")
+            setTimeout(() => {
+              clipboardCopy.classList.remove("visible")
+            }, 1500);
+          })
+        })
+      })
+      .catch(err => {https://alooo.net
+        document.querySelector(".urlDataContainer").style.display = "none"
+        errMsg.classList.add("visible")
+      })
+    })
+  </script>
+</body>
+</html>

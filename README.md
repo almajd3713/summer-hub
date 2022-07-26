@@ -13,7 +13,7 @@ All projects are taken from a post on IG that I found. Completion shouldn't be i
 - [ ] Landing Page
 - [ ] Password Generator
 - [ ] Tic Tac Toe Game
-- [ ] Link Shortener Website
+- [X] Link Shortener Website
 - [ ] Portfolio Website
 - [ ] Drawing App
 - [ ] Food Order Website
