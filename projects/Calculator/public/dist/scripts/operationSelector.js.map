@@ -1,1 +1,1 @@
-{"version":3,"file":"operationSelector.js","sourceRoot":"","sources":["../../../src/scripts/operationSelector.ts"],"names":[],"mappings":"AAGA,eAAe,CAAC,MAAkB,EAAE,EAAE;IACpC,QAAQ,MAAM,EAAE;QACd,KAAK,KAAK;YACR,OAAO,CAAC,MAAc,EAAE,EAAE,CAC9B,AAD8B,CAAA;KAC7B;AACH,CAAC,CAAA"}
+{"version":3,"file":"operationSelector.js","sourceRoot":"","sources":["../../../src/scripts/operationSelector.ts"],"names":[],"mappings":"AAGA,eAAe,CAAC,MAAkB,EAAE,EAAE;IACpC,QAAQ,MAAM,EAAE;QACd,KAAK,KAAK;YACR,OAAO,CAAC,MAAc,EAAE,QAAgB,EAAE,EAAE,CAAC,MAAM,GAAG,QAAQ,CAAA;KACjE;AACH,CAAC,CAAA"}

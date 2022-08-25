@@ -1,7 +1,7 @@
 export default (action) => {
     switch (action) {
         case "add":
-            return (oldVal) => ;
+            return (oldVal, addedVal) => oldVal + addedVal;
     }
 };
 //# sourceMappingURL=operationSelector.js.map

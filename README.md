@@ -39,3 +39,6 @@ All projects are taken from a post on IG that I found. Completion shouldn't be i
 - [ ] Todo App
 - [ ] Random User API
 - [ ] Typing Speed Test
+
+Custom:
+- [ ] Infinite Drawing Grid
